@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "867098E8-C76D-4D5A-94CD-94E45C32899B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather_m30api/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
+            landmarkName = "HomeViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - a698b75eee01be4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Weather_m30api.HomeViewModel.days : Swift.Int"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 7489b707de8a209b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.days.getter : Swift.Int"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 9a2e3a9b07eb6c87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.days.setter : Swift.Int"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 2637ac1f09397f96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.days.modify : Swift.Int"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 1409d75b6a806587"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.days.modify : Swift.Int with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 3700a76e124a65f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.$days.getter : Combine.Published&lt;Swift.Int&gt;.Publisher"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - d80fcd05f11c0de4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.$days.setter : Combine.Published&lt;Swift.Int&gt;.Publisher"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 634d8d633ba9efd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.$days.modify : Combine.Published&lt;Swift.Int&gt;.Publisher"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 4fe5c240bcecfe13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.$days.modify : Combine.Published&lt;Swift.Int&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "5649C161-27A2-454E-8822-5FA2040BBDCF - 708f15ecaf59a52"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather_m30api.HomeViewModel.init() -&gt; Weather_m30api.HomeViewModel"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "7"
+                  endingLineNumber = "7"
+                  offsetFromSymbolStart = "328">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8F5879EB-CEDF-4FD6-BBE5-7BE7BC041BC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather_m30api/Views/WeatherDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6018B834-EA50-44E5-8849-E7111C514BF9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather_m30api/ViewModels/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "getWeatherData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6018B834-EA50-44E5-8849-E7111C514BF9 - 6bb5e9531f8ae0a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Weather_m30api.HomeViewModel.getWeatherData() -&gt; ()"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/ViewModels/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "6018B834-EA50-44E5-8849-E7111C514BF9 - b44899b24a9f4c38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in Weather_m30api.HomeViewModel.getWeatherData() -&gt; ()"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/ViewModels/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "6018B834-EA50-44E5-8849-E7111C514BF9 - b98a4c58f35462bb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in Weather_m30api.HomeViewModel.getWeatherData() -&gt; ()"
+                  moduleName = "Weather_m30api"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/muslim/Desktop/Mokhammad/Weather_m30api/Weather_m30api/ViewModels/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
