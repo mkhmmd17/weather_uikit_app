@@ -3,25 +3,26 @@ import Combine
 
 class HomeViewModel {
     
-    @Published var weatherData: [Forecast] = []
-    @Published var days: Int = 0
-    @Published var city: String = ""
-    @Published var isLoading: Bool = false
+    private let networkManager = NetworkManager()
+    private var cancellables = Set<AnyCancellable>()
     
+    @Published var forecasts: [Forecast]?
+    @Published var error: Error?
     
-    func getWeatherData() {
-        Task {
-            isLoading = true
-            do {
-                let forecast = try await NetworkManager.shared.getWeatherForecast(for: city, days: days)
-                Task { @MainActor in
-                    self.weatherData = forecast.forecast
-                    print(self.weatherData)
-                    isLoading = false
+    func fetchWeatherForecast(location: String, days: Int) {
+        networkManager.fetchWeatherForecast(location: location, days: days)
+            .sink(receiveCompletion: { result in
+                switch result {
+                case .failure(let error):
+                    self.error = error
+                case .finished:
+                    break
                 }
-            } catch {
-                print(error)
-            }
-        }
+            }, receiveValue: { forecast in
+                self.forecasts = forecast.forecast
+                print(forecast)
+            })
+            .store(in: &cancellables)
     }
+    
 }

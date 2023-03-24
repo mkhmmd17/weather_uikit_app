@@ -2,7 +2,7 @@
 import Foundation
 
 // MARK: - Weather
-struct WeatherForecast: Codable {
+struct WeatherForecastResponse: Codable {
     
     let location: String
     let forecast: [Forecast]

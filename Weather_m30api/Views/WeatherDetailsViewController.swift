@@ -32,14 +32,12 @@ class WeatherDetailsViewController: UIViewController, UITableViewDataSource, UIT
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.days
+        10
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = weatherTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(viewModel.weatherData[0].maxTempC)"
-//        cell.contentView.backgroundColor = .red
         return cell
     }
     

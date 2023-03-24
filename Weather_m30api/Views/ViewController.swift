@@ -90,14 +90,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         guard let daysCount = Int(daysCountTextField.text ?? "1") else { return }
         
-        homeViewModel.city = cityName
-        homeViewModel.days = daysCount
-        
-        homeViewModel.getWeatherData()
         
         
-        let vc = WeatherDetailsViewController()
-        self.present(vc, animated: true, completion: nil)
+        homeViewModel.fetchWeatherForecast(location: cityName, days: daysCount)
+        
+        
+//        let vc = WeatherDetailsViewController()
+//        self.present(vc, animated: true, completion: nil)
         
     }
     
