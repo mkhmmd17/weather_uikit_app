@@ -11,8 +11,10 @@ import Combine
 class ViewController: UIViewController, UITextFieldDelegate {
     
     private let homeViewModel = WeatherViewModel()
+    private var cancellables = Set<AnyCancellable>()
     
-    private lazy var cityNameTextField: UITextField = {
+    
+    private lazy var locationTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .red
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }()
     
     
-    private lazy var daysCountTextField: UITextField = {
+    private lazy var daysTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .blue
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -50,8 +52,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         view.backgroundColor = .systemGray
         
-        view.addSubview(cityNameTextField)
-        view.addSubview(daysCountTextField)
+        view.addSubview(locationTextField)
+        view.addSubview(daysTextField)
         view.addSubview(displayWeatherButton)
         addConstraints()
         
@@ -61,17 +63,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func addConstraints() {
         
         NSLayoutConstraint.activate([
-            cityNameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 3),
-            cityNameTextField.heightAnchor.constraint(equalToConstant: 40),
-            cityNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            cityNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            locationTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height / 3),
+            locationTextField.heightAnchor.constraint(equalToConstant: 40),
+            locationTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            locationTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            daysCountTextField.topAnchor.constraint(equalTo: cityNameTextField.bottomAnchor, constant: 24),
-            daysCountTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            daysCountTextField.heightAnchor.constraint(equalToConstant: 40),
-            daysCountTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            daysTextField.topAnchor.constraint(equalTo: locationTextField.bottomAnchor, constant: 24),
+            daysTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            daysTextField.heightAnchor.constraint(equalToConstant: 40),
+            daysTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            displayWeatherButton.topAnchor.constraint(equalTo: daysCountTextField.bottomAnchor, constant: 20),
+            displayWeatherButton.topAnchor.constraint(equalTo: daysTextField.bottomAnchor, constant: 20),
             displayWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             displayWeatherButton.heightAnchor.constraint(equalToConstant: 40),
             displayWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
@@ -83,20 +85,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @objc private func displayWeatherAction() {
         
-        guard let cityName = cityNameTextField.text else {
-            print("Please enter the city name")
+        
+        guard let location = locationTextField.text,
+              let daysText = daysTextField.text,
+              let days = Int(daysText) else {
             return
         }
         
-        guard let daysCount = Int(daysCountTextField.text ?? "1") else { return }
+        homeViewModel.$forecasts
+            .sink(receiveValue: { forecast in
+                guard let forecast = forecast else { return }
+                let tableViewController = WeatherDetailsViewController(forecast: forecast)
+                self.navigationController?.pushViewController(tableViewController, animated: true)
+            })
+            .store(in: &cancellables)
         
-        
-        
-        homeViewModel.fetchWeatherForecast(location: cityName, days: daysCount)
-        
-        
-        let vc = WeatherDetailsViewController(forecast: [Forecast(date: "12.10.10", maxTempC: 12.21, minTempC: 11.21)])
-        self.present(vc, animated: true, completion: nil)
+        homeViewModel.fetchWeatherForecast(location: location, days: days)
         
     }
     
