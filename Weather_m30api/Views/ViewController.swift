@@ -92,29 +92,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
                return
            }
 
-        //MARK: - Doesnt work
-//        homeViewModel.$forecasts
-//            .sink(receiveValue: { forecast in
-//                guard let forecast = forecast else { return }
-//                let tableViewController = WeatherDetailsViewController(forecast: forecast)
-//                self.navigationController?.pushViewController(tableViewController, animated: true)
-//            })
-//            .store(in: &cancellables)
-//
-//        homeViewModel.fetchWeatherForecast(location: location, days: days)
-
+        homeViewModel.fetchWeatherForecast(location: location, days: days)
         
-        
-        
-        
-        let vc = WeatherDetailsViewController(forecast: [
-            Forecast(date: "12.10.10", maxTempC: 12.21, minTempC: 11.21),
-            Forecast(date: "13.10.10", maxTempC: 13.21, minTempC: 12.21),
-            Forecast(date: "14.10.10", maxTempC: 14.21, minTempC: 13.21),
-            Forecast(date: "15.10.10", maxTempC: 15.21, minTempC: 14.21)
-        ])
-        self.present(vc, animated: true, completion: nil)
-        
+        // Bind the tableView VC
+        homeViewModel.$forecasts
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { forecast in
+                guard let forecast = forecast else { return }
+                let tableViewController = WeatherDetailsViewController(forecast: forecast)
+                self.present(tableViewController, animated: true)
+            })
+            .store(in: &cancellables)
     }
     
 }

@@ -6,7 +6,7 @@ class WeatherViewModel {
     private let networkManager = NetworkManager()
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var forecasts: [Forecast]?
+    @Published var forecasts: [WeatherForecast]?
     @Published var error: Error?
     
     func fetchWeatherForecast(location: String, days: Int) {
@@ -16,7 +16,7 @@ class WeatherViewModel {
                 case .failure(let error):
                     self.error = error
                 case .finished:
-                    break
+                    print("Hello")
                 }
             }, receiveValue: { forecast in
                 self.forecasts = forecast.forecast

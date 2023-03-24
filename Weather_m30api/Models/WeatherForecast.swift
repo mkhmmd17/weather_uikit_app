@@ -5,7 +5,7 @@ import Foundation
 struct WeatherForecastResponse: Codable {
     
     let location: String
-    let forecast: [Forecast]
+    let forecast: [WeatherForecast]
 
     enum CodingKeys: String, CodingKey {
         case location
@@ -14,7 +14,7 @@ struct WeatherForecastResponse: Codable {
 }
 
 // MARK: - Forecast
-struct Forecast: Codable {
+struct WeatherForecast: Codable {
     let date: String
     let maxTempC, minTempC: Double
 

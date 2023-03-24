@@ -11,9 +11,9 @@ import UIKit
 class WeatherDetailsViewController: UITableViewController {
     
     
-    private let forecast: [Forecast]
+    private let forecast: [WeatherForecast]
     
-    init(forecast: [Forecast]) {
+    init(forecast: [WeatherForecast]) {
         self.forecast = forecast
         super.init(nibName: nil, bundle: nil)
     }
@@ -25,7 +25,8 @@ class WeatherDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(WeatherDetailsCell.self, forCellReuseIdentifier: "cell")
+        title = "TableVioew"
+        tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "cell")
         view.backgroundColor = .systemPink
 
     }
@@ -37,9 +38,9 @@ class WeatherDetailsViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WeatherTableViewCell
         let forecastItem = forecast[indexPath.row]
-        cell.textLabel?.text = "\(forecastItem.date): \(forecastItem.date)"
+        cell.configure(with: forecastItem)
         return cell
     }
     
