@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-class HomeViewModel {
+class WeatherViewModel {
     
     private let networkManager = NetworkManager()
     private var cancellables = Set<AnyCancellable>()

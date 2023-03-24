@@ -10,7 +10,7 @@ import Combine
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    private let homeViewModel = HomeViewModel()
+    private let homeViewModel = WeatherViewModel()
     
     private lazy var cityNameTextField: UITextField = {
         let textField = UITextField()
@@ -95,8 +95,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         homeViewModel.fetchWeatherForecast(location: cityName, days: daysCount)
         
         
-//        let vc = WeatherDetailsViewController()
-//        self.present(vc, animated: true, completion: nil)
+        let vc = WeatherDetailsViewController(forecast: [Forecast(date: "12.10.10", maxTempC: 12.21, minTempC: 11.21)])
+        self.present(vc, animated: true, completion: nil)
         
     }
     
