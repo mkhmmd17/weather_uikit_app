@@ -25,7 +25,8 @@ class WeatherDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "TableVioew"
+        title = "TableView"
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(WeatherTableViewCell.self, forCellReuseIdentifier: "cell")
         view.backgroundColor = .systemPink
 

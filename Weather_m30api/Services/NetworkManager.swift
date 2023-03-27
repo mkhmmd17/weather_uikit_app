@@ -1,5 +1,4 @@
 import Foundation
-import Combine
 
 enum NetworkError: Error {
     case invalidURL
@@ -14,9 +13,9 @@ class NetworkManager {
     private let decoder = JSONDecoder()
     private let apiKey = "N2EwMTRlMjktYzEwMC00ZGQ5LTliNmMtMTY4NGVjNzI1ODIw"
     
-    func fetchWeatherForecast(location: String, days: Int) -> AnyPublisher<WeatherForecastResponse, NetworkError> {
+    func fetchWeatherForecast(location: String, days: Int) async throws -> WeatherForecastResponse {
         guard let url = URL(string: "\(baseURL)/Forecast") else {
-            return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
+            throw NetworkError.invalidURL
         }
         
         var request = URLRequest(url: url)
@@ -25,24 +24,12 @@ class NetworkManager {
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         
         let requestBody = ["location": location, "days": days] as [String: Any]
+        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: [])
         
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: [])
-        } catch {
-            return Fail(error: NetworkError.decodingError(error)).eraseToAnyPublisher()
-        }
+        let (data, _) = try await session.data(for: request)
         
-        return session.dataTaskPublisher(for: request)
-            .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      200..<300 ~= httpResponse.statusCode else {
-                    throw NetworkError.httpError((response as? HTTPURLResponse)?.statusCode ?? 0)
-                }
-                return data
-            }
-            .decode(type: WeatherForecastResponse.self, decoder: decoder)
-            .mapError { NetworkError.decodingError($0) }
-            .eraseToAnyPublisher()
+        let result = try JSONDecoder().decode(WeatherForecastResponse.self, from: data)
+        return result
     }
 }
 

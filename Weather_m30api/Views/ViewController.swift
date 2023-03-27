@@ -10,9 +10,8 @@ import Combine
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    private let homeViewModel = WeatherViewModel()
+    private let weatherViewModel = WeatherViewModel()
     private var cancellables = Set<AnyCancellable>()
-
     
     private lazy var locationTextField: UITextField = {
         let textField = UITextField()
@@ -47,6 +46,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
+    private lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.color = .black
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        return spinner
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +61,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(locationTextField)
         view.addSubview(daysTextField)
         view.addSubview(displayWeatherButton)
+        view.addSubview(spinner)
+        setupBindings()
         addConstraints()
-        
     }
     
     
@@ -76,34 +83,55 @@ class ViewController: UIViewController, UITextFieldDelegate {
             displayWeatherButton.topAnchor.constraint(equalTo: daysTextField.bottomAnchor, constant: 20),
             displayWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             displayWeatherButton.heightAnchor.constraint(equalToConstant: 40),
-            displayWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            displayWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
+            spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             
             
         ])
         
     }
     
-    @objc private func displayWeatherAction() {
-        
-        
-        guard let location = locationTextField.text,
-                 let daysText = daysTextField.text,
-                 let days = Int(daysText) else {
-               return
-           }
-
-        homeViewModel.fetchWeatherForecast(location: location, days: days)
-        
-        // Bind the tableView VC
-        homeViewModel.$forecasts
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { forecast in
-                guard let forecast = forecast else { return }
-                let tableViewController = WeatherDetailsViewController(forecast: forecast)
-                self.present(tableViewController, animated: true)
-            })
+    private func setupBindings() {
+        weatherViewModel.weatherViewActionPublisher
+            .receive(on: RunLoop.main)
+            .sink { [weak self] action in
+                switch action {
+                case .loading(let show):
+                    self?.showSpinner(show: show)
+                case .updateWeather(let forecast):
+                    guard let forecast else { return }
+                    let tableViewController = WeatherDetailsViewController(forecast: forecast)
+                    self?.navigationController?.pushViewController(tableViewController, animated: true)
+                case .showAlert(let error):
+                    let alert = UIAlertController(title: "Alert", message: error, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self?.present(alert, animated: true)
+                }
+            }
             .store(in: &cancellables)
     }
     
+    @objc private func displayWeatherAction() {
+        
+        guard let location = locationTextField.text,
+              let daysText = daysTextField.text,
+              let days = Int(daysText) else {
+            return
+        }
+        
+        weatherViewModel.fetchWeatherForecast(location: location, days: days)
+    }
+    
+    private func showSpinner(show: Bool) {
+        if show {
+            print("start", Date())
+        } else {
+            print("end", Date())
+        }
+        
+        show ? spinner.startAnimating() : spinner.stopAnimating()
+    }
 }
 
